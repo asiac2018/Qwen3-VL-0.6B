@@ -21,6 +21,7 @@ import os
 import sys
 import re
 import glob
+import time
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
@@ -71,6 +72,32 @@ model = SiQ_VLForCausalLM.from_pretrained(
 processor = SiQ_VLProcessor.from_pretrained(MODEL_PATH, fix_mistral_regex=True)
 model.eval()
 
+# ============================================================
+# CUDA Warmup — Pre-compile kernels to avoid 20s+ cold start delay
+# PyTorch compiles CUDA kernels on first use with new tensor shapes.
+# Running a small dummy inference here ensures all kernels are
+# compiled BEFORE the user sends their first request.
+# ============================================================
+print("Warming up CUDA kernels...")
+_warmup_start = time.time()
+_warmup_img = Image.new("RGB", (224, 224), color="red")
+_warmup_inputs = processor(
+    batch=[(_warmup_img, "test", None)],
+    return_tensors="pt",
+).to(model.device)
+with torch.no_grad():
+    _ = model.generate(
+        input_ids=_warmup_inputs.input_ids,
+        pixel_values=_warmup_inputs.pixel_values,
+        attention_mask=_warmup_inputs.attention_mask,
+        max_new_tokens=5,
+        eos_token_id=[151643, 151645],
+        do_sample=False,
+        repetition_penalty=1.3,
+    )
+torch.cuda.synchronize()
+print(f"CUDA warmup done in {time.time()-_warmup_start:.1f}s — first user request will be fast")
+
 # Model info
 total_params = sum(p.numel() for p in model.parameters())
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -82,6 +109,7 @@ print(f"Model loaded on cuda:{MODEL_GPU}! Total params: {total_params/1e9:.2f}B,
 # ============================================================
 def predict(image, question, max_tokens, temperature, top_p, do_sample, show_thinking):
     """Run inference and return the response."""
+    t_start = time.time()
     if image is None:
         return "Please upload an image first."
 
@@ -101,11 +129,13 @@ def predict(image, question, max_tokens, temperature, top_p, do_sample, show_thi
     except Exception as e:
         return f"Error loading image: {e}"
 
+    t_proc = time.time()
     inputs = processor(
         batch=[(image, question, None)],
         return_tensors="pt",
     ).to(model.device)
 
+    t_gen = time.time()
     with torch.no_grad():
         output_ids = model.generate(
             input_ids=inputs.input_ids,
@@ -124,6 +154,10 @@ def predict(image, question, max_tokens, temperature, top_p, do_sample, show_thi
 
     if not show_thinking:
         response = strip_thinking(response)
+
+    t_end = time.time()
+    n_tokens = output_ids.shape[1] - inputs.input_ids.shape[1]
+    print(f"  [TIMING] proc={t_gen-t_proc:.3f}s gen={t_end-t_gen:.2f}s total={t_end-t_start:.2f}s tokens={n_tokens}", flush=True)
 
     return response
 
