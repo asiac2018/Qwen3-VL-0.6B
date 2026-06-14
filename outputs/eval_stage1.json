@@ -1,0 +1,376 @@
+{
+  "model_path": "./outputs/stage1/final",
+  "timestamp": "2026-06-14 02:11:09",
+  "total_tests": 35,
+  "passed": 28,
+  "avg_score": 0.7115185473015286,
+  "avg_latency_ms": 5200.84673336574,
+  "category_scores": {
+    "color_recognition": {
+      "total": 5,
+      "score": 1.0,
+      "passed": 1,
+      "avg_score": 0.2,
+      "pass_rate": 0.2
+    },
+    "vqa_caption": {
+      "total": 5,
+      "score": 4.2685490112731985,
+      "passed": 5,
+      "avg_score": 0.8537098022546397,
+      "pass_rate": 1.0
+    },
+    "vqa_object": {
+      "total": 5,
+      "score": 4.355610946829629,
+      "passed": 5,
+      "avg_score": 0.8711221893659259,
+      "pass_rate": 1.0
+    },
+    "vqa_subject": {
+      "total": 5,
+      "score": 4.257302708145074,
+      "passed": 5,
+      "avg_score": 0.8514605416290149,
+      "pass_rate": 1.0
+    },
+    "vqa_scene": {
+      "total": 5,
+      "score": 4.373299718812168,
+      "passed": 5,
+      "avg_score": 0.8746599437624336,
+      "pass_rate": 1.0
+    },
+    "vqa_color": {
+      "total": 5,
+      "score": 4.359913250244213,
+      "passed": 5,
+      "avg_score": 0.8719826500488426,
+      "pass_rate": 1.0
+    },
+    "text_preservation": {
+      "total": 5,
+      "score": 2.2884735202492212,
+      "passed": 2,
+      "avg_score": 0.45769470404984425,
+      "pass_rate": 0.4
+    }
+  },
+  "results": [
+    {
+      "question": "What color is this image?",
+      "response": "This image shows a scene with a red dress, red scarf, white hat. The file was uploaded to the appropriate location. This image has been uploaded to the internet. Please check your email address for this image. No email address is associated with this image. No email address found. No email address exists for this image",
+      "expected": "red",
+      "category": "color_recognition",
+      "score": 1.0,
+      "latency_ms": 2511.2202167510986,
+      "pass": true
+    },
+    {
+      "question": "What color is this image?",
+      "response": "This image shows a scene with dog, cat, human figure, person. The image appears to be in the color black. This photograph was taken from the scene using a digital camera and a few other objects. The background color of this image is black. No object was used in the camera equipment to capture the action or",
+      "expected": "blue",
+      "category": "color_recognition",
+      "score": 0.0,
+      "latency_ms": 1705.8026790618896,
+      "pass": false
+    },
+    {
+      "question": "What color is this image?",
+      "response": "This image shows an object in blue color.\n\nThis image appears to be a photograph capturing various elements from different angles. The camera equipment used was Nikon D70 (Canon). The scene features no objects beyond the scope of visible items. No relevant background or item for this image. No other person has posted with the photographer",
+      "expected": "green",
+      "category": "color_recognition",
+      "score": 0.0,
+      "latency_ms": 1798.0899810791016,
+      "pass": false
+    },
+    {
+      "question": "What color is this image?",
+      "response": "The image shows an object in blue color. This image appears to be from various sources, but no visible objects were found. Please try to find more information if there's any additional context needed. Please refer back to the source for further assistance. The image was taken from the specified location, and no other source has been",
+      "expected": "yellow",
+      "category": "color_recognition",
+      "score": 0.0,
+      "latency_ms": 2173.278331756592,
+      "pass": false
+    },
+    {
+      "question": "What color is this image?",
+      "response": "The image appears to be of an individual photograph. This image was taken from various locations, including photographs from different times, with digital imaging techniques. No visible items or objects were found in the location where you see them. Additionally, no relevant information exists regarding the subject mentioned. Please try to find the appropriate resources. The",
+      "expected": "white",
+      "category": "color_recognition",
+      "score": 0.0,
+      "latency_ms": 1721.8871116638184,
+      "pass": false
+    },
+    {
+      "question": "Describe this image in detail.",
+      "response": "This image shows a scene containing bowl, broccoli, bowl, bowl, orange. The image appears to be a photograph capturing various elements within the frame. Please note that this image is part of a large",
+      "expected": null,
+      "category": "vqa_caption",
+      "score": 0.8826530612244897,
+      "latency_ms": 7168.524503707886,
+      "pass": true
+    },
+    {
+      "question": "What objects can you see in this image?",
+      "response": "I can see the following objects in this image: bowl, bowl, broccoli, bowl, orange. These items appear in the photograph along with the accompanying image. The shot contains bowl, bowl, broccoli, bowl,",
+      "expected": null,
+      "category": "vqa_object",
+      "score": 0.8454545454545453,
+      "latency_ms": 5915.683269500732,
+      "pass": true
+    },
+    {
+      "question": "What is the main subject of this image?",
+      "response": "The main subject of this image appears to be bowl. This bowl serves as the main visible element in the image. Additionally, you can see bowl along with bowl, broccoli, orange, bowl. The image contains",
+      "expected": null,
+      "category": "vqa_subject",
+      "score": 0.841,
+      "latency_ms": 6132.500410079956,
+      "pass": true
+    },
+    {
+      "question": "What is happening in this image?",
+      "response": "There is a visible bowl above the image, with one object being bowl, other objects include broccoli, orange, bowl, bowl, violet. This image contains these objects: bowl, orange, bowl, violet. The imag",
+      "expected": null,
+      "category": "vqa_scene",
+      "score": 0.8617021276595744,
+      "latency_ms": 6545.932054519653,
+      "pass": true
+    },
+    {
+      "question": "What colors are prominent in this image?",
+      "response": "The image shows bowl, broccoli, orange, bowl, orange. This is a photograph capturing various elements in the frame. The color palette contains bowl, broccoli, orange, bowl, orange. This image appears ",
+      "expected": null,
+      "category": "vqa_color",
+      "score": 0.85,
+      "latency_ms": 6927.702903747559,
+      "pass": true
+    },
+    {
+      "question": "Describe this image in detail.",
+      "response": "This image shows a scene containing giraffe, giraffe. The image appears to be a photograph capturing various elements in the frame. This image was made using a digital camera with lenses. The image is",
+      "expected": null,
+      "category": "vqa_caption",
+      "score": 0.8504950495049505,
+      "latency_ms": 6902.658700942993,
+      "pass": true
+    },
+    {
+      "question": "What objects can you see in this image?",
+      "response": "I can see the following objects in this image: giraffe, giraffe. This image appears to camera resampling tool, but no other objects were visible. Please enjoy your time.ő\nThis image appears to camera ",
+      "expected": null,
+      "category": "vqa_object",
+      "score": 0.9244444444444444,
+      "latency_ms": 1775.4426002502441,
+      "pass": true
+    },
+    {
+      "question": "What is the main subject of this image?",
+      "response": "The main subject of this image appears to be giraffe. This image seems to be a photograph capturing various elements in the frame. The individual who framed this image likely uses a digital camera for",
+      "expected": null,
+      "category": "vqa_subject",
+      "score": 0.8602739726027396,
+      "latency_ms": 6929.203748703003,
+      "pass": true
+    },
+    {
+      "question": "What is happening in this image?",
+      "response": "This image shows an animal with giraffe. The photograph appears to be of a giraffe. This image was taken from various sources. Please enjoy exploring this image together.ő\n\nThe image 'giraffe' appears",
+      "expected": null,
+      "category": "vqa_scene",
+      "score": 0.8282722513089005,
+      "latency_ms": 7008.961200714111,
+      "pass": true
+    },
+    {
+      "question": "What colors are prominent in this image?",
+      "response": "The image shows giraffe, giraffe. This is an image consisting of giraffe, giraffe. The image appears to be part of the scene containing gircaffe. Please acknowledge this image.ő\n\nThis image appears to",
+      "expected": null,
+      "category": "vqa_color",
+      "score": 0.9074074074074073,
+      "latency_ms": 1934.7891807556152,
+      "pass": true
+    },
+    {
+      "question": "Describe this image in detail.",
+      "response": "This image shows a scene containing potted plant, vase. The image appears to be a photograph capturing various elements in the frame. The image includes potted plant, vase. This image consists of thes",
+      "expected": null,
+      "category": "vqa_caption",
+      "score": 0.8426395939086294,
+      "latency_ms": 6940.323829650879,
+      "pass": true
+    },
+    {
+      "question": "What objects can you see in this image?",
+      "response": "I can see the following objects in this image: potted plant, vase. This image shows a potted plant along with a vase. The scene includes these objects. Additionally, visible beyond the frame is none. ",
+      "expected": null,
+      "category": "vqa_object",
+      "score": 0.8726415094339622,
+      "latency_ms": 6893.921852111816,
+      "pass": true
+    },
+    {
+      "question": "What is the main subject of this image?",
+      "response": "The main subject of this image appears to be potted plant. This potted plant serves functional purpose, visible in the photograph. The scene includes potted plant, vase, walkway. Additionally, the ima",
+      "expected": null,
+      "category": "vqa_subject",
+      "score": 0.8587064676616915,
+      "latency_ms": 6510.18214225769,
+      "pass": true
+    },
+    {
+      "question": "What is happening in this image?",
+      "response": "This image shows a scene containing potted plant, vase. The image appears to be a photograph capturing various elements in the frame. This image was taken from the visible parts of the frame. Addition",
+      "expected": null,
+      "category": "vqa_scene",
+      "score": 0.8463636363636363,
+      "latency_ms": 6500.390291213989,
+      "pass": true
+    },
+    {
+      "question": "What colors are prominent in this image?",
+      "response": "The image shows a scene containing potted plant, vase. This photograph shows nature-related content. The image appears to be a photograph capturing various elements in the frame. Additionally, this im",
+      "expected": null,
+      "category": "vqa_color",
+      "score": 0.8446700507614212,
+      "latency_ms": 6944.380283355713,
+      "pass": true
+    },
+    {
+      "question": "Describe this image in detail.",
+      "response": "This image shows a scene containing zebra. The image appears to be a photograph capturing various elements in the frame. The image seems to include zebra, zebra, zebra. This image is part of a larger ",
+      "expected": null,
+      "category": "vqa_caption",
+      "score": 0.8300884955752211,
+      "latency_ms": 6697.663068771362,
+      "pass": true
+    },
+    {
+      "question": "What objects can you see in this image?",
+      "response": "I can see the following objects in this image: zebra. This image shows an zebra. There is an zebra visible in this photograph. Please note that. Thank you for your interaction.©\nThis image appears to ",
+      "expected": null,
+      "category": "vqa_object",
+      "score": 0.8590163934426229,
+      "latency_ms": 7004.195213317871,
+      "pass": true
+    },
+    {
+      "question": "What is the main subject of this image?",
+      "response": "The main subject of this image appears to be zebra. This photograph shows scene with zebra, zebra, zebra. The image seems to be capturing a zebra. Please note that the image was taken from a distance ",
+      "expected": null,
+      "category": "vqa_subject",
+      "score": 0.8465608465608465,
+      "latency_ms": 6869.468212127686,
+      "pass": true
+    },
+    {
+      "question": "What is happening in this image?",
+      "response": "There is a visible object at point zebra. This image shows an animal at point zebra. The photograph appears to be capturing various elements around this location. Please note that this image has been ",
+      "expected": null,
+      "category": "vqa_scene",
+      "score": 0.9586206896551723,
+      "latency_ms": 6813.628673553467,
+      "pass": true
+    },
+    {
+      "question": "What colors are prominent in this image?",
+      "response": "This image shows a pink fish and a blueberry tree. The color palette contains pink and blueberry tree. This image appears to be a photograph capturing various elements in the frame. The colors used in",
+      "expected": null,
+      "category": "vqa_color",
+      "score": 0.8570093457943925,
+      "latency_ms": 6212.663888931274,
+      "pass": true
+    },
+    {
+      "question": "Describe this image in detail.",
+      "response": "This image shows a scene containing umbrella, person. The image appears to be a photograph capturing various elements in the frame. Additionally, the image includes umbrella and person. This image see",
+      "expected": null,
+      "category": "vqa_caption",
+      "score": 0.8626728110599078,
+      "latency_ms": 6186.661005020142,
+      "pass": true
+    },
+    {
+      "question": "What objects can you see in this image?",
+      "response": "I can see the following objects in this image: umbrella, person. This image shows a person holding a umbrella. Additionally, there is a visible object called person. Please let me know if there was an",
+      "expected": null,
+      "category": "vqa_object",
+      "score": 0.854054054054054,
+      "latency_ms": 6388.315916061401,
+      "pass": true
+    },
+    {
+      "question": "What is the main subject of this image?",
+      "response": "The main subject of this image appears to be umbrella. This umbrella is the main object visible in the photograph. The scene includes person, umbrella, person. Additional information indicates that no",
+      "expected": null,
+      "category": "vqa_subject",
+      "score": 0.8507614213197969,
+      "latency_ms": 6750.9095668792725,
+      "pass": true
+    },
+    {
+      "question": "What is happening in this image?",
+      "response": "Image description of the photograph: The photograph shows an umbrella person holding up a drink, with someone holding up a person. This image appears to be a photograph capturing various elements in t",
+      "expected": null,
+      "category": "vqa_scene",
+      "score": 0.8783410138248847,
+      "latency_ms": 7081.6545486450195,
+      "pass": true
+    },
+    {
+      "question": "What colors are prominent in this image?",
+      "response": "The image shows a mix of colors: red, orange, purple. This image appears to be composed of these colors. Please let know if there any issues with the image quality or content. Continue processing othe",
+      "expected": null,
+      "category": "vqa_color",
+      "score": 0.9008264462809916,
+      "latency_ms": 4038.651704788208,
+      "pass": true
+    },
+    {
+      "question": "What is 2+2?",
+      "response": "This query was made at 2+2. The question appears to be related to the following: (1) [2] [2], [2]. This statement has been found online. No relevant information available for any of these items or ref",
+      "expected": "4, four",
+      "category": "text_preservation",
+      "score": 0.0,
+      "latency_ms": 3370.333433151245,
+      "pass": false
+    },
+    {
+      "question": "What is the capital of France?",
+      "response": "The capital of France is Paris. This statement has been verified by the French government. This information is protected under French law. The answer to this question was given by the court. This stat",
+      "expected": "Paris, paris",
+      "category": "text_preservation",
+      "score": 1.0,
+      "latency_ms": 3248.0547428131104,
+      "pass": true
+    },
+    {
+      "question": "Explain gravity in simple terms.",
+      "response": "To determine if there is any other way to get assistance, yes. This statement was created using a photograph, but no video or audio recording device. The query related to this item would be found at a",
+      "expected": "force, pull, attract",
+      "category": "text_preservation",
+      "score": 0.0,
+      "latency_ms": 3671.926259994507,
+      "pass": false
+    },
+    {
+      "question": "Write a haiku about nature.",
+      "response": "Yes, I can write a haiku (a) around nature. Please join me in the community. The query related to nature may be answered through various means. Please confirm that you can access this resource. For mo",
+      "expected": null,
+      "category": "text_preservation",
+      "score": 0.9551401869158878,
+      "latency_ms": 3487.0669841766357,
+      "pass": true
+    },
+    {
+      "question": "What is artificial intelligence?",
+      "response": "Yes, artificial intelligence refers to various technologies used in everyday life, including AI applications such as medical diagnosis, computer graphics, pattern recognition, image processing. This s",
+      "expected": "machine, computer, learn",
+      "category": "text_preservation",
+      "score": 0.3333333333333333,
+      "latency_ms": 3267.5671577453613,
+      "pass": false
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ModelScope cache
+models/modelscope_cache/
+
+# Large model files (download from HuggingFace)
+models/siglip2-so400m-patch14-224/
+models/Qwen3-0.6B/
+
+# Training outputs (model checkpoints - too large for GitHub)
+outputs/stage1/
+outputs/stage2/checkpoint-*/
+outputs/stage2/final/
+outputs/stage2/merged/
+outputs/stage2/merged_v2/
+outputs/stage2/merged_v3/
+outputs/stage2/merged_v4/
+
+# Keep evaluation reports and summaries
+!outputs/EVALUATION_REPORT.md
+!outputs/PROJECT_SUMMARY.md
+!outputs/eval_*.json
+
+# Test screenshots (large binary files)
+outputs/screenshots/
+
+# Test results (can regenerate)
+outputs/ui_test_results*.json
+
+# Data (can regenerate with scripts)
+data/coco128_images/
+
+# Claude Code session files
+.claude/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# PyTorch
+*.pt
+*.bin
+*.safetensors
+
+# Logs
+*.log
+nohup.out
+
+# Temporary files
+tmp/
+temp/
