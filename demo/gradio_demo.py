@@ -152,6 +152,16 @@ def predict(image, question, max_tokens, temperature, top_p, do_sample, show_thi
 
     response = processor.decode(output_ids[0], assistant_only=True, skip_special_tokens=True)
 
+    # Trim trailing incomplete sentences (model doesn't output eos_token, so responses may trail off)
+    # Cut at last complete sentence boundary: period, exclamation, question mark, or newline
+    if response and not any(response.rstrip().endswith(c) for c in '.!?。！？'):
+        # Find last sentence-ending position
+        for punct in ['. ', '.\n', '! ', '? ', '。', '！', '？']:
+            last_idx = response.rfind(punct)
+            if last_idx > len(response) * 0.5:  # Only trim if we're past halfway
+                response = response[:last_idx + len(punct)].strip()
+                break
+
     if not show_thinking:
         response = strip_thinking(response)
 
@@ -240,8 +250,8 @@ with gr.Blocks(title="Qwen3-VL-0.6B Vision-Language Model") as demo:
 
             with gr.Accordion("⚙️ Advanced Settings", open=False):
                 max_tokens = gr.Slider(
-                    minimum=32, maximum=1024, value=512,
-                    step=32, label="Max New Tokens"
+                    minimum=32, maximum=512, value=80,
+                    step=16, label="Max New Tokens"
                 )
                 temperature = gr.Slider(
                     minimum=0.0, maximum=2.0, value=0.6,
